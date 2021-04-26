@@ -8,6 +8,6 @@ class WeatherFactory:
         if weather == "Sunny":
             return Weather("Sunny", -10, ["Car", "Bike", "TukTuk"])
         if weather == "Rainy":
-            return Weather("Rainy", -10, ["Car", "TukTuk"])
+            return Weather("Rainy", 20, ["Car", "TukTuk"])
         if weather == "Windy":
-            return Weather("Windy", -10, ["Car", "Bike"])
+            return Weather("Windy", 0, ["Car", "Bike"])
