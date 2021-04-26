@@ -4,5 +4,6 @@ class Vehicle:
         self.speed = speed
         self.crater_time = crater_time
 
-    def influenced_by(self, orbit):
+    @staticmethod
+    def influenced_by(orbit):
         return Vehicle("Bike", 10, 2)
