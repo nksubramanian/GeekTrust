@@ -5,4 +5,3 @@ class Orbit:
         self.no_of_craters = no_of_craters
         self.orbit_traffic_speed = orbit_traffic_speed
 
-
