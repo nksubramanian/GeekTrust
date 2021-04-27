@@ -8,11 +8,11 @@ class VehicleCreator:
     @staticmethod
     def create_vehicle(vehicle):
         if vehicle == "Bike":
-            return Vehicle("Bike", 10, 0)
+            return Vehicle("Bike", 10, 2)
         if vehicle == "TukTuk":
-            return Vehicle("TukTuk", 45, 0)
+            return Vehicle("TukTuk", 12, 1)
         if vehicle == "Car":
-            return Vehicle("Car", 20, 0)
+            return Vehicle("Car", 20, 3)
 
 
 class Vehicle:
@@ -31,5 +31,7 @@ class Vehicle:
             time.append(self.compute_time_for_orbit(orbit))
         return time
 
+    def __eq__(self, other):
+        return (self.vehicle_type, self.speed, self.crater_time) == (other.vehicle_type, other.speed, other.crater_time)
 
 
