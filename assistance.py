@@ -21,4 +21,3 @@ class Assistance:
         travel_options_time = list(map(TravelOption.get_travel_time, travel_options))
         fastest_option = travel_options[travel_options_time.index(min(travel_options_time))]
         return fastest_option.get_travel_details()
-
