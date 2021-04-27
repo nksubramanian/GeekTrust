@@ -37,8 +37,8 @@ class TravelOptionProvider:
     def get_fastest_travel_options(self, travel_options):
         travel_times = list(map(lambda x: x.get_travel_time(), travel_options))
         fastest_travel_time = min(travel_times)
-        fastest_routes = filter(lambda x: x.get_travel_time() == fastest_travel_time,
-                                travel_options)
+        fastest_routes = list(filter(lambda x: x.get_travel_time() == fastest_travel_time,
+                                travel_options))
         return fastest_routes
 
     def get_travel_options(self, orbits, vehicles):
