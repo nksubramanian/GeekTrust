@@ -1,17 +1,17 @@
 class VehicleCreator:
 
     @staticmethod
-    def create_vehicles(allowed_vehicles):
-        x = map(VehicleCreator.create_vehicle, allowed_vehicles)
+    def create_vehicles(vehicle_names):
+        x = map(VehicleCreator.create_vehicle, vehicle_names)
         return list(x)
 
     @staticmethod
-    def create_vehicle(vehicle):
-        if vehicle == "Bike":
+    def create_vehicle(vehicle_name):
+        if vehicle_name == "Bike":
             return Vehicle("Bike", 10, 2)
-        if vehicle == "TukTuk":
+        if vehicle_name == "TukTuk":
             return Vehicle("TukTuk", 12, 1)
-        if vehicle == "Car":
+        if vehicle_name == "Car":
             return Vehicle("Car", 20, 3)
 
 
