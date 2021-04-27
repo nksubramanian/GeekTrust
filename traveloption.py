@@ -4,7 +4,10 @@ class TravelOption:
         self.vehicle = vehicle
 
     def get_travel_time(self):
-        return (self.orbit.distance/self.vehicle.speed) + self.orbit.no_of_craters*self.vehicle.crater_time/60
+        speed = min(self.vehicle.speed, self.orbit.orbit_traffic_speed)
+        time_to_cover_orbit = self.orbit.distance/speed
+        time_to_cross_craters = self.orbit.no_of_craters * self.vehicle.crater_time / 60
+        return time_to_cross_craters + time_to_cover_orbit
 
     def get_travel_details(self):
         return str(self.orbit.name) + " " + str(self.vehicle.vehicle_type)
