@@ -3,6 +3,7 @@ class TravelOption:
         self.orbit = orbit
         self.vehicle = vehicle
         self.vehicle_type = vehicle.vehicle_type
+        self.orbit_name = orbit.name
 
     def get_travel_time(self):
         speed = min(self.vehicle.speed, self.orbit.orbit_traffic_speed)
