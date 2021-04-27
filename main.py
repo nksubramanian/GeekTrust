@@ -1,6 +1,6 @@
 from orbit import Orbit
 from weather import WeatherFactory
-from vehicle import VehicleFactory
+from vehicle import VehicleCreator
 from decisionmaker import DecisionMaker
 
 if __name__ == '__main__':
@@ -11,7 +11,7 @@ if __name__ == '__main__':
     print(orbit1.orbit_traffic_speed)
     print(orbit2.orbit_traffic_speed)
     user_weather = WeatherFactory.create_weather("Windy")
-    vehicles_allowed = VehicleFactory.get_vehicles(user_weather.allowed_vehicles)
+    vehicles_allowed = VehicleCreator.create_vehicles(user_weather.allowed_vehicles)
     orbits = [orbit1, orbit2]
     weather_adjusted_orbits = user_weather.adjust_orbits(orbits)
     decision = DecisionMaker().find_quickest_orbit_and_vehicle(vehicles_allowed, weather_adjusted_orbits)

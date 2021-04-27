@@ -1,4 +1,5 @@
 from orbit import Orbit
+import copy
 
 
 class WeatherFactory:
@@ -20,8 +21,8 @@ class Weather:
         self.allowed_vehicles = allowed_vehicles
 
     def __adjust_orbit(self, orbit):
-        no_of_craters = orbit.no_of_craters + self.crater_change_percentage * orbit.no_of_craters / 100
-        return Orbit(orbit.name, orbit.distance, no_of_craters, orbit.orbit_traffic_speed)
+        orbit.no_of_craters = orbit.no_of_craters + self.crater_change_percentage * orbit.no_of_craters / 100
+        return orbit
 
     def adjust_orbits(self, orbits):
         modified_orbits = []

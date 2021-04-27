@@ -1,8 +1,8 @@
-class VehicleFactory:
+class VehicleCreator:
 
     @staticmethod
-    def get_vehicles(allowed_vehicles):
-        x = map(VehicleFactory.create_vehicle, allowed_vehicles)
+    def create_vehicles(allowed_vehicles):
+        x = map(VehicleCreator.create_vehicle, allowed_vehicles)
         return list(x)
 
     @staticmethod
