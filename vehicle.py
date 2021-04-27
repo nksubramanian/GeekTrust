@@ -1,3 +1,20 @@
+class VehicleFactory:
+
+    @staticmethod
+    def get_vehicles(allowed_vehicles):
+        x = map(VehicleFactory.create_vehicle, allowed_vehicles)
+        return list(x)
+
+    @staticmethod
+    def create_vehicle(vehicle):
+        if vehicle == "Bike":
+            return Vehicle("Bike", 10, 0)
+        if vehicle == "TukTuk":
+            return Vehicle("TukTuk", 45, 0)
+        if vehicle == "Car":
+            return Vehicle("Car", 20, 0)
+
+
 class Vehicle:
     def __init__(self, vehicle_type, speed, crater_time):
         self.vehicle_type = vehicle_type
@@ -5,7 +22,7 @@ class Vehicle:
         self.crater_time = crater_time
 
     def compute_time_for_orbit(self, orbit):
-        time = (orbit.road/self.speed) + orbit.no_of_craters*self.crater_time/60
+        time = (orbit.distance/self.speed) + orbit.no_of_craters*self.crater_time/60
         return time
 
     def compute_time_for_orbits(self, orbits):
