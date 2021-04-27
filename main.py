@@ -7,7 +7,7 @@ if __name__ == '__main__':
     f = open(file_location, "r")
     inputs = f.readline().split()
     assistance = Assistance()
-    print(assistance.get_fastest_vehicle_and_route(inputs[0], inputs[1], inputs[2]))
+    print(assistance.get_fastest_vehicle_and_route(inputs[0], [inputs[1], inputs[2]]))
 
 
 
