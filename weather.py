@@ -1,7 +1,3 @@
-from orbit import Orbit
-import copy
-
-
 class WeatherFactory:
 
     @staticmethod
