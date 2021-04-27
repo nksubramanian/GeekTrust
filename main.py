@@ -1,10 +1,12 @@
+import sys
 from assistance import Assistance
 
 
 if __name__ == '__main__':
-    f = open("C:\\Users\\subra\\OneDrive\\Desktop\\file\\demofile.txt ", "r")
-    f.readline()
-    assistance = Assistance("Sunny", 89, 76)
+    file_location = sys.argv[1]
+    f = open(file_location, "r")
+    inputs = f.readline().split()
+    assistance = Assistance(inputs[0], inputs[1], inputs[2])
     print(assistance.get_fastest_vehicle_and_route())
 
 
