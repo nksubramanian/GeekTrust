@@ -19,7 +19,8 @@ class TravelOptionProvider:
     def get_best_travel_option_based_on_vehicle(self, travel_options):
         for travel_option in travel_options:
             self.rank_travel_options_on_vehicle(travel_option)
-        minimum_rank = min(map(lambda x: x.rank, travel_option))
+
+        minimum_rank = min(map(lambda x: x.rank, travel_options))
         best_ranked_travel_options = list(filter(lambda x: x.rank == minimum_rank, travel_options))
         return best_ranked_travel_options[0]
 
@@ -36,7 +37,7 @@ class TravelOptionProvider:
     def get_fastest_travel_options(self, travel_options):
         travel_times = list(map(lambda x: x.get_travel_time(), travel_options))
         fastest_travel_time = min(travel_times)
-        fastest_routes = filter(lambda x: travel_options.get_travel_time() == fastest_travel_time,
+        fastest_routes = filter(lambda x: x.get_travel_time() == fastest_travel_time,
                                 travel_options)
         return fastest_routes
 
