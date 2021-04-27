@@ -1,4 +1,4 @@
-from orbit import Orbit
+from orbit import Orbit, OrbitRepository
 from weather import WeatherFactory
 from vehicle import VehicleCreator
 from traveloption import TravelOption
@@ -7,8 +7,13 @@ from traveloption import TravelOption
 class Assistance:
 
     def get_fastest_vehicle_and_route(self, weather, orbit1_travel_time, orbit2_travel_time):
-        self.orbit1 = Orbit("ORBIT1", 18, 20)
-        self.orbit2 = Orbit("ORBIT2", 20, 10)
+
+        orbitRepo = OrbitRepository()
+        orbits = orbitRepo.get_orbits()
+
+        self.orbit1 = orbits[0]
+        self.orbit2 = orbits[1]
+
         self.orbit1.set_orbit_traffic_speed(orbit1_travel_time)
         self.orbit2.set_orbit_traffic_speed(orbit2_travel_time)
         self.user_weather = WeatherFactory.create_weather(weather)
