@@ -12,7 +12,7 @@ class VehicleTest(unittest.TestCase):
         assert Vehicle("Bike", 10, 2).__eq__(vehicle) == True
 
 
-        # assert vehicle == Vehicle("Bike", 10, 2)
+
 
 
 
