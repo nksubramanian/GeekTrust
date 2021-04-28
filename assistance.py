@@ -1,5 +1,5 @@
 from orbit import Orbit, OrbitRepository
-from weather import WeatherFactory
+from weather import WeatherFactory, VehicleType
 from vehicle import VehicleCreator
 from traveloption import TravelOption
 
@@ -26,9 +26,9 @@ class TravelOptionProvider:
 
     def rank_travel_options_on_vehicle(self, travel_option):
         ranking = {
-            "Bike": 1,
-            "TukTuk": 2,
-            "Car": 3
+            VehicleType.Bike: 1,
+            VehicleType.TukTuk: 2,
+            VehicleType.Car: 3
         }
         rank = ranking[travel_option.vehicle_type]
         travel_option.rank = rank

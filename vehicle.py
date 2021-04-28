@@ -1,3 +1,6 @@
+from weather import VehicleType
+
+
 class VehicleCreator:
 
     @staticmethod
@@ -7,12 +10,12 @@ class VehicleCreator:
 
     @staticmethod
     def create_vehicle(vehicle_name):
-        if vehicle_name == "Bike":
-            return Vehicle("Bike", 10, 2)
-        if vehicle_name == "TukTuk":
-            return Vehicle("TukTuk", 12, 1)
-        if vehicle_name == "Car":
-            return Vehicle("Car", 20, 3)
+        if vehicle_name == VehicleType.Bike:
+            return Vehicle(VehicleType.Bike, 10, 2)
+        if vehicle_name == VehicleType.TukTuk:
+            return Vehicle(VehicleType.TukTuk, 12, 1)
+        if vehicle_name == VehicleType.Car:
+            return Vehicle(VehicleType.Car, 20, 3)
 
 
 class Vehicle:

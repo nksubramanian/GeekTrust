@@ -1,13 +1,28 @@
+import enum
+
+
+class VehicleType(enum.Enum):
+    Car = 1
+    Bike = 2
+    TukTuk = 3
+
+
+class WeatherType(enum.Enum):
+    SUNNY = 1
+    RAINY = 2
+    WINDY = 3
+
+
 class WeatherFactory:
 
     @staticmethod
     def create_weather(weather):
-        if weather == "Sunny":
-            return Weather("Sunny", -10, ["Car", "Bike", "TukTuk"])
-        if weather == "Rainy":
-            return Weather("Rainy", 20, ["Car", "TukTuk"])
-        if weather == "Windy":
-            return Weather("Windy", 0, ["Car", "Bike"])
+        if weather == "SUNNY":
+            return Weather(WeatherType.SUNNY, -10, [VehicleType.Car, VehicleType.Bike, VehicleType.TukTuk])
+        if weather == "RAINY":
+            return Weather(WeatherType.RAINY, 20, [VehicleType.Car, VehicleType.TukTuk])
+        if weather == "WINDY":
+            return Weather(WeatherType.WINDY, 0, [VehicleType.Car, VehicleType.Bike])
 
 
 class Weather:
