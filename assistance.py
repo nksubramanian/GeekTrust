@@ -1,7 +1,7 @@
 from orbit import Orbit, OrbitRepository
 from weather import WeatherFactory, VehicleType
 from vehicle import VehicleCreator
-from traveloption import TravelOption
+from travel_option import TravelOption
 
 
 class TravelOptionProvider:

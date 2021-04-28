@@ -11,5 +11,9 @@ class TravelOption:
         time_to_cross_craters = self.orbit.no_of_craters * self.vehicle.crater_time / 60
         return time_to_cross_craters + time_to_cover_orbit
 
-    def get_travel_details(self):
-        return str(self.orbit.name) + " " + str(self.vehicle_type)
+    def get_vehicle(self):
+        return self.vehicle_type
+
+    def get_orbit(self):
+        return self.orbit_name
+

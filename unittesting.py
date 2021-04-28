@@ -1,6 +1,6 @@
 import unittest
 from vehicle import VehicleCreator, Vehicle
-import copy
+
 
 
 class VehicleTest(unittest.TestCase):
