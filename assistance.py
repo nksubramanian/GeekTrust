@@ -10,7 +10,7 @@ class TravelOptionProvider:
         orbits = OrbitRepository().get_orbits()
         self.__set_traffic_speed_limit(orbits, traffic_speed_limits)
         weather = WeatherFactory.create_weather(weather_string)
-        vehicles = VehicleCreator.create_vehicles(weather.allowed_vehicles)
+        vehicles = VehicleCreator.create_vehicles(weather.get_allowed_vehicles())
         self.adjust_crater_in_orbits(orbits, weather)
         travel_options = self.get_travel_options(orbits, vehicles)
         travel_options = self.get_fastest_travel_options(travel_options)
