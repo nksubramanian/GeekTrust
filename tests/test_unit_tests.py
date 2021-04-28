@@ -7,13 +7,6 @@ from travel_option import TravelOption
 
 
 class VehicleTest(unittest.TestCase):
-    def test_when_vehicle_is_bike_then_create_vehicle_returns_bike(self):
-        vehicle = VehicleCreator.create_vehicle("Bike")
-        assert vehicle.vehicle_type == "Bike"
-        assert vehicle.speed == 10
-        assert vehicle.crater_time == 2
-        assert Vehicle("Bike", 10, 2).__eq__(vehicle) == True
-
 
     def test_get_orbits_return_orbits_with_specifications_as_mentioned_in_question(self):
         orbits = OrbitRepository().get_orbits()
@@ -55,6 +48,8 @@ class VehicleTest(unittest.TestCase):
             vehicle = Vehicle("x", 20, 60)
             x = TravelOption(orbit_test, vehicle)
             assert x.get_travel_time() == test[1]
+
+        assert True
 
 
 

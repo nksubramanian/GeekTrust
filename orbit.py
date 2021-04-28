@@ -12,6 +12,15 @@ class Orbit:
 class OrbitRepository:
     # read this from a config file
     def get_orbits(self):
-        return Orbit("ORBIT1", 18, 20), Orbit("ORBIT2", 20, 10)
+        from configparser import ConfigParser
+        config = ConfigParser()
+        config.read('F:\\GeekTrust\\config.ini')
+        orbit1_name = config["ORBIT1"]["name"]
+        orbit1_distance = int(config["ORBIT1"]["distance"])
+        orbit1_no_of_craters= int(config["ORBIT1"]["no_of_craters"])
+        orbit2_name = config["ORBIT2"]["name"]
+        orbit2_distance = int(config["ORBIT2"]["distance"])
+        orbit2_no_of_craters = int(config["ORBIT2"]["no_of_craters"])
+        return Orbit(orbit1_name, orbit1_distance, orbit1_no_of_craters), Orbit(orbit2_name, orbit2_distance, orbit2_no_of_craters)
 
 
