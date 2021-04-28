@@ -29,6 +29,17 @@ class VehicleTest(unittest.TestCase):
             weather = WeatherFactory.create_weather(test[0])
             assert set(test[2]) == set(weather.get_allowed_vehicles())
 
+    def test_traffic_speed_limit_gets_added_correctly(self):
+        orbits = OrbitRepository().get_orbits()
+        assert orbits[0].orbit_traffic_speed is None
+        assert orbits[1].orbit_traffic_speed is None
+        orbits[0].set_orbit_traffic_speed(45)
+        orbits[1].set_orbit_traffic_speed(54)
+        assert orbits[0].orbit_traffic_speed == 45
+        assert orbits[1].orbit_traffic_speed == 54
+
+
+
 
 
 
