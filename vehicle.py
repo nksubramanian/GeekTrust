@@ -10,12 +10,12 @@ class VehicleCreator:
 
     @staticmethod
     def create_vehicle(vehicle_name):
-        if vehicle_name == VehicleType.Bike:
-            return Vehicle(VehicleType.Bike, 10, 2)
-        if vehicle_name == VehicleType.TukTuk:
-            return Vehicle(VehicleType.TukTuk, 12, 1)
-        if vehicle_name == VehicleType.Car:
-            return Vehicle(VehicleType.Car, 20, 3)
+        if vehicle_name == VehicleType.BIKE:
+            return Vehicle(VehicleType.BIKE, 10, 2)
+        if vehicle_name == VehicleType.TUKTUK:
+            return Vehicle(VehicleType.TUKTUK, 12, 1)
+        if vehicle_name == VehicleType.CAR:
+            return Vehicle(VehicleType.CAR, 20, 3)
 
 
 class Vehicle:

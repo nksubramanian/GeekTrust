@@ -1,6 +1,5 @@
 import unittest
 from assistance import TravelOptionProvider
-import copy
 
 
 class VehicleTest(unittest.TestCase):

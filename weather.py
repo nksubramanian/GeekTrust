@@ -2,9 +2,9 @@ import enum
 
 
 class VehicleType(enum.Enum):
-    Car = 1
-    Bike = 2
-    TukTuk = 3
+    CAR = 1
+    BIKE = 2
+    TUKTUK = 3
 
 
 class WeatherType(enum.Enum):
@@ -18,11 +18,11 @@ class WeatherFactory:
     @staticmethod
     def create_weather(weather):
         if weather == "SUNNY":
-            return Weather(WeatherType.SUNNY, -10, [VehicleType.Car, VehicleType.Bike, VehicleType.TukTuk])
+            return Weather(WeatherType.SUNNY, -10, [VehicleType.CAR, VehicleType.BIKE, VehicleType.TUKTUK])
         if weather == "RAINY":
-            return Weather(WeatherType.RAINY, 20, [VehicleType.Car, VehicleType.TukTuk])
+            return Weather(WeatherType.RAINY, 20, [VehicleType.CAR, VehicleType.TUKTUK])
         if weather == "WINDY":
-            return Weather(WeatherType.WINDY, 0, [VehicleType.Car, VehicleType.Bike])
+            return Weather(WeatherType.WINDY, 0, [VehicleType.CAR, VehicleType.BIKE])
 
 
 class Weather:
@@ -36,3 +36,11 @@ class Weather:
 
     def get_allowed_vehicles(self):
         return self.__allowed_vehicles
+
+    def __eq__(self, other):
+        return (self.__name, self.__crater_change_percentage, self.__allowed_vehicles) == (other.__name,
+                                                                                           other.__crater_change_percentage,
+                                                                                           other.__allowed_vehicles)
+
+
+

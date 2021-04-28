@@ -26,9 +26,9 @@ class TravelOptionProvider:
 
     def rank_travel_options_on_vehicle(self, travel_option):
         ranking = {
-            VehicleType.Bike: 1,
-            VehicleType.TukTuk: 2,
-            VehicleType.Car: 3
+            VehicleType.BIKE: 1,
+            VehicleType.TUKTUK: 2,
+            VehicleType.CAR: 3
         }
         rank = ranking[travel_option.vehicle_type]
         travel_option.rank = rank
