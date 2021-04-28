@@ -3,6 +3,7 @@ import unittest
 from orbit import OrbitRepository, Orbit
 from vehicle import VehicleCreator, Vehicle
 from weather import Weather, WeatherFactory, VehicleType
+from travel_option import TravelOption
 
 
 class VehicleTest(unittest.TestCase):
@@ -45,6 +46,21 @@ class VehicleTest(unittest.TestCase):
         assert orbit_test.no_of_craters == 10
         weather.adjust_crater(orbit_test)
         assert orbit_test.no_of_craters == 9
+
+    def test_get_travel_time_for_given_orbit_and_vehicle(self):
+        tests = [[10, 12], [40, 11]]
+        for test in tests:
+            orbit_test = Orbit("ORBIT1", 20, 10)
+            orbit_test.set_orbit_traffic_speed(test[0])
+            vehicle = Vehicle("x", 20, 60)
+            x = TravelOption(orbit_test, vehicle)
+            assert x.get_travel_time() == test[1]
+
+
+
+
+
+
 
 
 

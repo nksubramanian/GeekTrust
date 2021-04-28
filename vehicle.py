@@ -34,7 +34,4 @@ class Vehicle:
             time.append(self.compute_time_for_orbit(orbit))
         return time
 
-    def __eq__(self, other):
-        return (self.vehicle_type, self.speed, self.crater_time) == (other.vehicle_type, other.speed, other.crater_time)
-
 
