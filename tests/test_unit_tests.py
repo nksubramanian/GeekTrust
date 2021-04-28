@@ -2,7 +2,7 @@ import unittest
 
 from orbit import OrbitRepository
 from vehicle import VehicleCreator, Vehicle
-from weather import Weather, WeatherFactory, VehicleType, WeatherType
+from weather import Weather, WeatherFactory, VehicleType
 
 
 class VehicleTest(unittest.TestCase):
@@ -20,14 +20,15 @@ class VehicleTest(unittest.TestCase):
         for value in values:
             assert (orbits[value[0]].name, orbits[value[0]].distance, orbits[value[0]].no_of_craters) == value[1]
 
-    def test_create_weather_creates_correct_weather_objects_with_mentioned_specifications(self):
-        values = [["SUNNY", Weather(WeatherType.SUNNY, -10, [VehicleType.CAR, VehicleType.BIKE, VehicleType.TUKTUK])],
-                  ["WINDY", Weather(WeatherType.WINDY, -10, [VehicleType.CAR, VehicleType.BIKE])],
-                  ["RAINY", Weather(WeatherType.RAINY, -10, [VehicleType.CAR, VehicleType.TUKTUK])]]
+    def test_weather_is_created_correctly_based_on_weather_string(self):
+        tests =[["SUNNY", -10, [VehicleType.CAR, VehicleType.BIKE, VehicleType.TUKTUK]],
+                ["WINDY", 0, [VehicleType.CAR, VehicleType.BIKE]],
+                ["RAINY", 20, [VehicleType.CAR, VehicleType.TUKTUK]]]
 
-        for value in values:
-            weather = WeatherFactory.create_weather(values[0])
-            assert weather.__eq__(value[1])
+        for test in tests:
+            weather = WeatherFactory.create_weather(test[0])
+            assert set(test[2]) == set(weather.get_allowed_vehicles())
+
 
 
 
