@@ -1,6 +1,6 @@
 import unittest
 
-from orbit import OrbitRepository
+from orbit import OrbitRepository, Orbit
 from vehicle import VehicleCreator, Vehicle
 from weather import Weather, WeatherFactory, VehicleType
 
@@ -37,6 +37,16 @@ class VehicleTest(unittest.TestCase):
         orbits[1].set_orbit_traffic_speed(54)
         assert orbits[0].orbit_traffic_speed == 45
         assert orbits[1].orbit_traffic_speed == 54
+
+
+    def test_craters_of_orbit_are_modified_correctly_based_on_weather(self):
+        orbit_test = Orbit("ORBIT1", 20, 10)
+        weather = Weather(-10, [VehicleType.CAR, VehicleType.TUKTUK])
+        assert orbit_test.no_of_craters == 10
+        weather.adjust_crater(orbit_test)
+        assert orbit_test.no_of_craters == 9
+
+
 
 
 
