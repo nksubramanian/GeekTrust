@@ -16,9 +16,11 @@ class TravelOptionProvider:
         self.__adjust_crater_in_orbits(orbits, weather)
         travel_options = self.__get_travel_options(orbits, vehicles)
 
+        return self.get_best_travel_option(travel_options)
+
+    def get_best_travel_option(self, travel_options):
         travel_options = self.get_fastest_travel_options(travel_options)
         return self.get_best_travel_option_based_on_vehicle(travel_options)
-
 
     def get_best_travel_option_based_on_vehicle(self, travel_options):
         for travel_option in travel_options:
