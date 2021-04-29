@@ -1,5 +1,5 @@
-from weather import WeatherFactory, VehicleType
-from vehicle import VehicleCreator
+from weather import WeatherFactory
+from vehicle import VehicleCreator, VehicleType
 from travel_option import TravelOption
 
 

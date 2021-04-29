@@ -1,6 +1,8 @@
 {
-  "orbit1": [ "ORBIT1", 18, 20],
-  "orbit2": ["ORBIT2", 20, 10 ]
+  "orbits": [
+    ["ORBIT1", 18, 20 ],
+    ["ORBIT2", 20, 10 ]
+  ]
 }
 
 

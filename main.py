@@ -14,9 +14,7 @@ def get_orbit_parameters(file_location):
     try:
         with open(file_location, 'r') as fp:
             json_object = json.load(fp)
-            x = json_object.get("orbit1", "")
-            y = json_object.get("orbit2", "")
-            return [x, y]
+            return json_object.get("orbits", "")
     except FileNotFoundError as error:
         return error.args[0]
 
