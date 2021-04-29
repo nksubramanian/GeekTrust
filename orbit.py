@@ -12,11 +12,13 @@ class Orbit:
         return self.__name
 
 
-
 class OrbitRepository:
-    def __init__(self, orbit_parameters):
-        self.orbit_parameters = orbit_parameters
+    def __init__(self, orbits_parameters):
+        self.orbits_parameters = orbits_parameters
 
     def get_orbits(self):
-        return [Orbit(self.orbit_parameters[0][0], self.orbit_parameters[0][1], self.orbit_parameters[0][2]),
-                Orbit(self.orbit_parameters[1][0], self.orbit_parameters[1][1], self.orbit_parameters[1][2])]
+        orbit_repository = []
+        for orbit_parameters in self.orbits_parameters:
+            orbit_repository.append(Orbit(orbit_parameters[0], orbit_parameters[1], orbit_parameters[2]))
+        return orbit_repository
+
