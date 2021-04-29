@@ -10,19 +10,11 @@ class Orbit:
 
 
 class OrbitRepository:
-    def __init__(self, name, distance, no_of_craters):
+    def __init__(self, orbit_parameters):
+        self.orbit_parameters = orbit_parameters
 
-    def get_orbits(self, orbit_parameters):
-        #from configparser import ConfigParser
-        #config = ConfigParser()
-        #config.read('F:\\GeekTrust\\config.ini')
-        #orbit1_name = config["ORBIT1"]["name"]
-        #orbit1_distance = int(config["ORBIT1"]["distance"])
-        #orbit1_no_of_craters = int(config["ORBIT1"]["no_of_craters"])
-        #orbit2_name = config["ORBIT2"]["name"]
-        #orbit2_distance = int(config["ORBIT2"]["distance"])
-        #orbit2_no_of_craters = int(config["ORBIT2"]["no_of_craters"])
-
-        return Orbit(orbit_parameters[0][0], orbit_parameters[0][1], orbit_parameters[0][2]), Orbit(orbit_parameters[1][0], orbit_parameters[1][1], orbit_parameters[1][2])
+    def get_orbits(self):
+        return [Orbit(self.orbit_parameters[0][0], self.orbit_parameters[0][1], self.orbit_parameters[0][2]),
+                Orbit(self.orbit_parameters[1][0], self.orbit_parameters[1][1], self.orbit_parameters[1][2])]
 
 
