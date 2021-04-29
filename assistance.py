@@ -8,7 +8,7 @@ class TravelOptionProvider:
 
     def get_best_travel_option(self, weather_string, traffic_speed_limits):
 
-        orbits = OrbitRepository().get_orbits()
+        orbits = OrbitRepository().get_orbits([["ORBIT1", 45, 54], ["ORBIT2", 45, 54]])
         self.__set_traffic_speed_limit(orbits, traffic_speed_limits)
         weather = WeatherFactory.create_weather(weather_string)
         vehicles = VehicleCreator.create_vehicles(weather.get_allowed_vehicles())

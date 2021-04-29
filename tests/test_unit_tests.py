@@ -49,7 +49,7 @@ class VehicleTest(unittest.TestCase):
             x = TravelOption(orbit_test, vehicle)
             assert x.get_travel_time() == test[1]
 
-        assert True
+
 
 
 
