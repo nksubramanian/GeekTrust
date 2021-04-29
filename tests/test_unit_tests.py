@@ -9,10 +9,12 @@ from travel_option import TravelOption
 class VehicleTest(unittest.TestCase):
 
     def test_get_orbits_return_orbits_with_specifications_as_mentioned_in_question(self):
-        orbits = OrbitRepository().get_orbits()
+        orbit_parameters = [["ORBIT1", 18, 20], ["ORBIT2", 20, 10]]
+        orbit_repository = OrbitRepository(orbit_parameters)
+        orbits = orbit_repository.get_orbits()
         values = [[0, ("ORBIT1", 18, 20)], [1, ("ORBIT2", 20, 10)]]
         for value in values:
-            assert (orbits[value[0]].__name, orbits[value[0]].distance, orbits[value[0]].no_of_craters) == value[1]
+            assert (orbits[value[0]].get_orbit_name(), orbits[value[0]].distance, orbits[value[0]].no_of_craters) == value[1]
 
     def test_weather_is_created_correctly_based_on_weather_string(self):
         tests =[["SUNNY", -10, [VehicleType.CAR, VehicleType.BIKE, VehicleType.TUKTUK]],
@@ -24,7 +26,9 @@ class VehicleTest(unittest.TestCase):
             assert set(test[2]) == set(weather.get_allowed_vehicles())
 
     def test_traffic_speed_limit_gets_added_correctly(self):
-        orbits = OrbitRepository().get_orbits()
+        orbit_parameters = [["ORBIT1", 18, 20], ["ORBIT2", 20, 10]]
+        orbit_repository = OrbitRepository(orbit_parameters)
+        orbits = orbit_repository.get_orbits()
         assert orbits[0].orbit_traffic_speed is None
         assert orbits[1].orbit_traffic_speed is None
         orbits[0].set_orbit_traffic_speed(45)
