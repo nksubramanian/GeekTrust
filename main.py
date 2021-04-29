@@ -37,7 +37,7 @@ if __name__ == '__main__':
     inputs = get_inputs(sys.argv[1])
     if inputs[0] not in ["SUNNY", "WINDY", "RAINY"]:
         raise Exception("Unrecognized weather")
-    orbits_parameters = get_orbit_parameters("configurations.json")
+    orbits_parameters = get_orbit_parameters("./config/configurations.json")
     travel_option = get_best_travel_option(inputs[0], [int(inputs[1]), int(inputs[2])], orbits_parameters)
     print(travel_option.get_vehicle())
     print(travel_option.get_orbit())
