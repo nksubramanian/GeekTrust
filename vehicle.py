@@ -33,5 +33,3 @@ class Vehicle:
         for orbit in orbits:
             time.append(self.compute_time_for_orbit(orbit))
         return time
-
-

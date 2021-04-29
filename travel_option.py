@@ -16,4 +16,3 @@ class TravelOption:
 
     def get_orbit(self):
         return self.orbit_name
-

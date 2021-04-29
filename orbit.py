@@ -16,5 +16,3 @@ class OrbitRepository:
     def get_orbits(self):
         return [Orbit(self.orbit_parameters[0][0], self.orbit_parameters[0][1], self.orbit_parameters[0][2]),
                 Orbit(self.orbit_parameters[1][0], self.orbit_parameters[1][1], self.orbit_parameters[1][2])]
-
-

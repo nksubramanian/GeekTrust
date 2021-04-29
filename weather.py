@@ -29,6 +29,3 @@ class Weather:
 
     def get_allowed_vehicles(self):
         return self.__allowed_vehicles
-
-
-

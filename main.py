@@ -8,8 +8,8 @@ class UserInputError(Exception):
     pass
 
 
-def get_best_travel_option(weather_string, orbit_speed_limits, orbitparameters):
-    orbit_repository = OrbitRepository(orbitparameters)
+def get_best_travel_option(weather_string, orbit_speed_limits, parameters_of_orbits):
+    orbit_repository = OrbitRepository(parameters_of_orbits)
     provider = TravelOptionProvider(orbit_repository)
     return provider.get_best_travel_option(weather_string, orbit_speed_limits)
 
@@ -21,26 +21,21 @@ def get_orbit_parameters(file_location):
         y = json_object.get("orbit2", "")
         return [x, y]
 
+
 def get_inputs():
     if len(sys.argv) != 2:
         raise UserInputError("please enter the file location as second location")
     file_location = sys.argv[1]
     f = open(file_location, "r")
-    inputs = f.readline().split()
-    if inputs[0] not in ["SUNNY", "WINDY", "RAINY"]:
+    inputs_from_file = f.readline().split()
+    if inputs_from_file[0] not in ["SUNNY", "WINDY", "RAINY"]:
         raise UserInputError("Weather entered is incorrect")
-    return inputs
-
+    return inputs_from_file
 
 
 if __name__ == '__main__':
     inputs = get_inputs()
-    orbit_parameters = get_orbit_parameters("./example.json")
-    travel_option = get_best_travel_option(inputs[0], [int(inputs[1]), int(inputs[2])], orbit_parameters)
+    orbits_parameters = get_orbit_parameters("./example.json")
+    travel_option = get_best_travel_option(inputs[0], [int(inputs[1]), int(inputs[2])], orbits_parameters)
     print(travel_option.get_vehicle())
     print(travel_option.get_orbit())
-
-
-
-
-
