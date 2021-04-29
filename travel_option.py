@@ -1,15 +1,15 @@
 class TravelOption:
     def __init__(self, orbit, vehicle):
-        self.orbit = orbit
-        self.vehicle = vehicle
+        self.__orbit = orbit
+        self.__vehicle = vehicle
         self.__vehicle_type = vehicle.get_vehicle_type()
-        self.orbit_name = orbit.name
+        self.__orbit_name = orbit.name
 
     def get_travel_time(self):
-        return self.vehicle.compute_time_for_orbit(self.orbit)
+        return self.__vehicle.compute_time_for_orbit(self.__orbit)
 
     def get_vehicle(self):
         return self.__vehicle_type
 
     def get_orbit(self):
-        return self.orbit_name
+        return self.__orbit_name

@@ -23,4 +23,4 @@ class VehicleTest(unittest.TestCase):
                 orbit_parameters = [["ORBIT1", 18, 20], ["ORBIT2", 20, 10]]
                 orbit_repository = OrbitRepository(orbit_parameters)
                 travel_option = TravelOptionProvider(orbit_repository).get_best_travel_option(test[0], test[1])
-                assert (travel_option.get_vehicle(), travel_option.orbit_name) == test[2]
+                assert (travel_option.get_vehicle(), travel_option.get_orbit()) == test[2]
