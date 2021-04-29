@@ -1,6 +1,6 @@
 import json
 import sys
-from assistance import TravelOptionProvider
+from travel_option_provider import TravelOptionProvider
 from orbit import OrbitRepository
 
 
