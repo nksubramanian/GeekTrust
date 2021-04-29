@@ -24,6 +24,7 @@ class VehicleTest(unittest.TestCase):
         for test in tests:
             weather = WeatherFactory.create_weather(test[0])
             assert set(test[2]) == set(weather.get_allowed_vehicles())
+            assert weather.get_crater_change_percentage() == test[1]
 
     def test_traffic_speed_limit_gets_added_correctly(self):
         orbit_parameters = [["ORBIT1", 18, 20], ["ORBIT2", 20, 10]]
@@ -44,15 +45,15 @@ class VehicleTest(unittest.TestCase):
         weather.adjust_crater(orbit_test)
         assert orbit_test.no_of_craters == 9
 
-    def test_get_travel_time_for_given_orbit_and_vehicle(self):
-        tests = [[10, 12], [40, 11]]
-        for test in tests:
-            orbit_test = Orbit("ORBIT1", 20, 10)
-            orbit_test.set_orbit_traffic_speed(test[0])
-            vehicle = Vehicle("x", 20, 60)
-            x = TravelOption(orbit_test, vehicle)
-            assert x.get_travel_time() == test[1]
-
+    def test_minimum_of_orbit_traffic_speed_and_vehicle_speed_is_used_to_compute_time_for_orbits(self):
+        vehicle = Vehicle(VehicleType.CAR, 10, 60)
+        orbit = Orbit("ORBIT1", 20, 10)
+        orbit.set_orbit_traffic_speed(45)
+        assert vehicle.compute_time_for_orbit(orbit) == 12
+        vehicle = Vehicle(VehicleType.CAR, 10, 60)
+        orbit = Orbit("ORBIT1", 20, 10)
+        orbit.set_orbit_traffic_speed(5)
+        assert vehicle.compute_time_for_orbit(orbit) == 14
 
 
 

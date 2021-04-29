@@ -23,3 +23,6 @@ class Weather:
 
     def get_allowed_vehicles(self):
         return self.__allowed_vehicles
+
+    def get_crater_change_percentage(self):
+        return self.__crater_change_percentage
