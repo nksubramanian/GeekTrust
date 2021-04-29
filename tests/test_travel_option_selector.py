@@ -3,7 +3,7 @@ from travel_option_provider import TravelOptionSelector
 from vehicle import VehicleType
 
 
-class TravelOptionProviderTests(unittest.TestCase):
+class TravelOptionSelectorTests(unittest.TestCase):
 
     def test_best_travel_option_is_based_vehicle_type_when_there_is_a_tie(self):
         tests = [
