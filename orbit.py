@@ -1,12 +1,16 @@
 class Orbit:
     def __init__(self, name, distance, no_of_craters):
-        self.name = name
+        self.__name = name
         self.distance = distance
         self.no_of_craters = no_of_craters
         self.orbit_traffic_speed = None
 
     def set_orbit_traffic_speed(self, orbit_traffic_speed):
         self.orbit_traffic_speed = orbit_traffic_speed
+
+    def get_orbit_name(self):
+        return self.__name
+
 
 
 class OrbitRepository:

@@ -12,7 +12,7 @@ class VehicleTest(unittest.TestCase):
         orbits = OrbitRepository().get_orbits()
         values = [[0, ("ORBIT1", 18, 20)], [1, ("ORBIT2", 20, 10)]]
         for value in values:
-            assert (orbits[value[0]].name, orbits[value[0]].distance, orbits[value[0]].no_of_craters) == value[1]
+            assert (orbits[value[0]].__name, orbits[value[0]].distance, orbits[value[0]].no_of_craters) == value[1]
 
     def test_weather_is_created_correctly_based_on_weather_string(self):
         tests =[["SUNNY", -10, [VehicleType.CAR, VehicleType.BIKE, VehicleType.TUKTUK]],
