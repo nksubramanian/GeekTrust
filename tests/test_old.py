@@ -1,8 +1,43 @@
 import unittest
+from unittest.mock import MagicMock
 
 from orbit import Orbit
-from travel_option_provider import TravelOptionProvider
+from travel_option import TravelOption
+from travel_option_provider import TravelOptionProvider, TravelOptionSelector
 from vehicle import Vehicle, VehicleType
+
+
+class TravelOptionProvidertests(unittest.TestCase):
+
+    @staticmethod
+    def create_travel_option(travel_time, vehicle_type, orbit_name):
+
+        option = TravelOptionMock()
+        option.get_travel_time = MagicMock(return_value=travel_time)
+        option.get_vehicle = MagicMock(return_value=vehicle_type)
+        option.get_orbit = MagicMock(return_value=orbit_name)
+        return option
+
+    def test_ss(self):
+        options = [
+            self.create_travel_option(travel_time=4, vehicle_type=VehicleType.BIKE, orbit_name="o1"),
+            self.create_travel_option(travel_time=4, vehicle_type=VehicleType.CAR, orbit_name="o2"),
+            self.create_travel_option(travel_time=4, vehicle_type=VehicleType.TUKTUK, orbit_name="o3"),
+        ]
+        option = TravelOptionSelector().select(options)
+        assert option.get_vehicle() == VehicleType.BIKE
+
+
+class TravelOptionMock:
+    def get_travel_time(self):
+        pass
+
+    def get_vehicle(self):
+        pass
+
+    def get_orbit(self):
+        pass
+
 
 
 class PreferenceTest(unittest.TestCase):
