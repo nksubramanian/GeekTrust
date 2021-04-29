@@ -32,7 +32,7 @@ class TravelOptionProvider:
             VehicleType.TUKTUK: 2,
             VehicleType.CAR: 3
         }
-        rank = ranking[travel_option.vehicle_type]
+        rank = ranking[travel_option.get_vehicle()]
         travel_option.rank = rank
 
     @staticmethod

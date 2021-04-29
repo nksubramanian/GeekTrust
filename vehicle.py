@@ -25,14 +25,17 @@ class VehicleCreator:
 
 class Vehicle:
     def __init__(self, vehicle_type, speed, crater_time):
-        self.vehicle_type = vehicle_type
-        self.speed = speed
-        self.crater_time = crater_time
+        self.__vehicle_type = vehicle_type
+        self.__speed = speed
+        self.__crater_time = crater_time
+
+    def get_vehicle_type(self):
+        return self.__vehicle_type
 
     def compute_time_for_orbit(self, orbit):
-        speed = min(self.speed, orbit.orbit_traffic_speed)
+        speed = min(self.__speed, orbit.orbit_traffic_speed)
         time_to_cover_orbit = orbit.distance/speed
-        time_to_cross_craters = orbit.no_of_craters * self.crater_time / 60
+        time_to_cross_craters = orbit.no_of_craters * self.__crater_time / 60
         return time_to_cross_craters + time_to_cover_orbit
 
 
