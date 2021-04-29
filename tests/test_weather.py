@@ -25,4 +25,4 @@ class WeatherTest(unittest.TestCase):
         orbit_test = Orbit("ORBIT1", 20, 10)
         weather = Weather(-10, [VehicleType.BIKE, VehicleType.TUKTUK])
         weather.adjust_crater(orbit_test)
-        assert orbit_test.no_of_craters == 9
+        assert orbit_test.get_num_craters() == 9

@@ -7,7 +7,7 @@ from orbit import OrbitRepository
 def get_best_travel_option(weather_string, orbit_speed_limits, parameters_of_orbits):
     orbit_repository = OrbitRepository(parameters_of_orbits)
     provider = TravelOptionProvider(orbit_repository)
-    return provider.get_best_travel_option(weather_string, orbit_speed_limits)
+    return provider.get_travel_option(weather_string, orbit_speed_limits)
 
 
 def get_orbit_parameters(file_location):
