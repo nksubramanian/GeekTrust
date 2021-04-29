@@ -13,16 +13,15 @@ def get_best_travel_option(weather_string, orbit_speed_limits, parameters_of_orb
 def get_orbit_parameters(file_location):
     with open(file_location, 'r') as fp:
         json_object = json.load(fp)
-        # ensure orbits shape
-        # what is the empty string
-        for orbit in json_object.get("orbits", ""):
+        parameters_of_orbits = json_object.get("orbits")
+        for orbit in parameters_of_orbits:
             if len(orbit) != 3:
                 raise Exception("The number of orbit parameters has to be 3")
             elif type(orbit[0]) is not str:
                 raise Exception("Orbit's distance and no of craters has to be integer")
             elif (type(orbit[1]) is not int) or (type(orbit[2]) is not int):
                 raise Exception("Orbit's distance and no of craters has to be integer")
-        return json_object.get("orbits", "")
+        return parameters_of_orbits
 
 
 def get_inputs(file_location):
