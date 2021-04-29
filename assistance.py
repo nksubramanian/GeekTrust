@@ -1,4 +1,3 @@
-from orbit import Orbit, OrbitRepository
 from weather import WeatherFactory, VehicleType
 from vehicle import VehicleCreator
 from travel_option import TravelOption
@@ -26,7 +25,8 @@ class TravelOptionProvider:
         best_ranked_travel_options = list(filter(lambda x: x.rank == minimum_rank, travel_options))
         return best_ranked_travel_options[0]
 
-    def rank_travel_options_on_vehicle(self, travel_option):
+    @staticmethod
+    def rank_travel_options_on_vehicle(travel_option):
         ranking = {
             VehicleType.BIKE: 1,
             VehicleType.TUKTUK: 2,
@@ -35,25 +35,27 @@ class TravelOptionProvider:
         rank = ranking[travel_option.vehicle_type]
         travel_option.rank = rank
 
-
-    def get_fastest_travel_options(self, travel_options):
+    @staticmethod
+    def get_fastest_travel_options(travel_options):
         travel_times = list(map(lambda x: x.get_travel_time(), travel_options))
         fastest_travel_time = min(travel_times)
-        fastest_routes = list(filter(lambda x: x.get_travel_time() == fastest_travel_time,
-                                travel_options))
+        fastest_routes = list(filter(lambda x: x.get_travel_time() == fastest_travel_time, travel_options))
         return fastest_routes
 
-    def get_travel_options(self, orbits, vehicles):
+    @staticmethod
+    def get_travel_options(orbits, vehicles):
         travel_options = []
         for orbit in orbits:
             for vehicle in vehicles:
                 travel_options.append(TravelOption(orbit, vehicle))
         return travel_options
 
-    def adjust_crater_in_orbits(self, orbits, weather):
+    @staticmethod
+    def adjust_crater_in_orbits(orbits, weather):
         for orbit in orbits:
             weather.adjust_crater(orbit)
 
-    def __set_traffic_speed_limit(self, orbits, traffic_speed_limits):
+    @staticmethod
+    def __set_traffic_speed_limit(orbits, traffic_speed_limits):
         for i in range(0, len(traffic_speed_limits)):
             orbits[i].set_orbit_traffic_speed(traffic_speed_limits[i])
