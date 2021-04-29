@@ -16,9 +16,8 @@ class VehicleTest(unittest.TestCase):
                  ["WINDY", [14, 20], (VehicleType.CAR, "ORBIT2"), [["ORBIT1", 18, 20], ["ORBIT2", 20, 10]]],
                  ["RAINY", [8, 15], (VehicleType.TUKTUK, "ORBIT2"), [["ORBIT1", 18, 20], ["ORBIT2", 20, 10]]],
                  ["SUNNY", [1, 1], (VehicleType.TUKTUK, "ORBIT1"), [["ORBIT1", 18, 20], ["ORBIT2", 20, 10]]],
-                 ["SUNNY", [12, 12], (VehicleType.TUKTUK, "ORBIT1"), [["ORBIT1", 18, 20], ["ORBIT2", 20, 10]]]
-
-                  ]
+                 ["SUNNY", [12, 12], (VehicleType.TUKTUK, "ORBIT1"), [["ORBIT1", 18, 20], ["ORBIT2", 20, 10]]],
+                 ["WINDY", [30, 30], (VehicleType.BIKE, "ORBIT1"), [["ORBIT1", 20, 60], ["ORBIT2", 200, 10]]]]
 
         for test in tests:
             with self.subTest(test=test):
