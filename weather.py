@@ -19,7 +19,7 @@ class Weather:
         self.__allowed_vehicles = allowed_vehicles
 
     def adjust_crater(self, orbit):
-        orbit.no_of_craters = orbit.no_of_craters + self.__crater_change_percentage * orbit.no_of_craters / 100
+        orbit.alter_number_of_craters(self.__crater_change_percentage)
 
     def get_allowed_vehicles(self):
         return self.__allowed_vehicles

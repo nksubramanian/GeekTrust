@@ -35,7 +35,7 @@ class Vehicle:
     def compute_time_for_orbit(self, orbit):
         speed = min(self.__speed, orbit.orbit_traffic_speed)
         time_to_cover_orbit = orbit.get_distance() / speed
-        time_to_cross_craters = orbit.no_of_craters * self.__crater_time / 60
+        time_to_cross_craters = orbit.get_num_craters() * self.__crater_time / 60
         return time_to_cross_craters + time_to_cover_orbit
 
 

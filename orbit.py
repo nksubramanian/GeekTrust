@@ -2,7 +2,7 @@ class Orbit:
     def __init__(self, name, distance, no_of_craters):
         self.__name = name
         self.__distance = distance
-        self.no_of_craters = no_of_craters
+        self.__no_of_craters = no_of_craters
         self.orbit_traffic_speed = None
 
     def get_distance(self):
@@ -11,8 +11,14 @@ class Orbit:
     def set_orbit_traffic_speed(self, orbit_traffic_speed):
         self.orbit_traffic_speed = orbit_traffic_speed
 
+    def alter_number_of_craters(self, percentage):
+        self.__no_of_craters = self.__no_of_craters + percentage * self.__no_of_craters / 100
+
     def get_orbit_name(self):
         return self.__name
+
+    def get_num_craters(self):
+        return self.__no_of_craters
 
     #get crater
     #get distance

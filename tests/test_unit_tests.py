@@ -1,35 +1,21 @@
 import unittest
 
 from orbit import OrbitRepository, Orbit
-from vehicle import VehicleCreator, Vehicle
+from vehicle import Vehicle
 from weather import Weather, WeatherFactory, VehicleType
-from travel_option import TravelOption
 from travel_option_provider import TravelOptionProvider
-
-
-class OrbitTest(unittest.TestCase):
-
-    def test_orbit_creation_test(self):
-        orb = Orbit("ORBIT1", 18, 20)
-        assert orb.get_orbit_name() == "ORBIT1"
-        assert orb.distance == 18
-        assert orb.no_of_craters == 20
-        assert orb.orbit_traffic_speed is None
-
-    def test_traffic_speed_could_be_set_for_orbit(self):
-        test_orbit = Orbit("ORBIT1", 18, 20)
-        test_orbit.set_orbit_traffic_speed(54)
-        assert test_orbit.orbit_traffic_speed == 54
 
 
 class OrbitRepositoryTest(unittest.TestCase):
     def test_orbit_repository_produces_orbit_as_per_config(self):
-        orbit_parameters = [["ORBIT1", 18, 20], ["ORBIT2", 20, 10]]
-        orbit_repository = OrbitRepository(orbit_parameters)
-        orbits = orbit_repository.get_orbits()
-        values = [("ORBIT1", 18, 20), ("ORBIT2", 20, 10)]
-        for i in range(0, len(values)):
-            assert (orbits[i].get_orbit_name(), orbits[i].distance, orbits[i].no_of_craters) == values[i]
+        config = [["ORBIT1", 18, 20], ["ORBIT2", 20, 10]]
+        repo = OrbitRepository(config)
+        orbits = repo.get_orbits()
+        for i in range(0, len(config)):
+            assert orbits[i].get_orbit_name() == config[i][0]
+            assert orbits[i].get_distance() == config[i][1]
+            assert orbits[i].
+                    , orbits[i].distance, orbits[i].no_of_craters) == values[i]
 
 
 class VehicleTest(unittest.TestCase):
