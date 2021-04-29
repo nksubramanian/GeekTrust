@@ -1,10 +1,4 @@
-import enum
-
-
-class VehicleType(enum.Enum):
-    CAR = 1
-    BIKE = 2
-    TUKTUK = 3
+from vehicle import VehicleType
 
 
 class WeatherFactory:
