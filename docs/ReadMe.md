@@ -5,12 +5,12 @@
 
 
 ## Pre-requisites  
-- There are no external packages needed for working of this project 
+- All requirements are in requirements.txt
 
 
 ## Running
 - The application's entry point is geektrust.py
-- The command is `python main.py ./inputfile/input1.txt'
+- The command is `python geektrust.py ./inputfile/input1.txt'
   
 
 ## Tests
