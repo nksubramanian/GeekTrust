@@ -29,6 +29,7 @@ def get_inputs(file_location):
     inputs_from_file = f.readline().split()
     return inputs_from_file
 
+
 def main():
     if len(sys.argv) != 2:
         raise Exception(f"Expect main.py and <input file location> as arguments")
