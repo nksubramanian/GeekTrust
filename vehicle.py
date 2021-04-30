@@ -7,10 +7,10 @@ class VehicleType(enum.Enum):
     TUKTUK = 3
 
 
-class VehicleCreator:
+class VehicleRepository:
     @staticmethod
-    def create_vehicles(vehicle_names):
-        x = map(VehicleCreator.create_vehicle, vehicle_names)
+    def get_vehicles(vehicle_names):
+        x = map(VehicleRepository.create_vehicle, vehicle_names)
         return list(x)
 
     @staticmethod

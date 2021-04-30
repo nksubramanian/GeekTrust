@@ -1,5 +1,5 @@
 from weather import WeatherFactory
-from vehicle import VehicleCreator, VehicleType
+from vehicle import VehicleRepository, VehicleType
 from travel_option import TravelOption
 from travel_option_selector import TravelOptionSelector
 
@@ -11,7 +11,7 @@ class TravelOptionProvider:
     def get_travel_option(self, weather_string, traffic_speed_limits):
         orbits = self.__orbit_repository.get_orbits()
         weather = WeatherFactory.create_weather(weather_string)
-        vehicles = VehicleCreator.create_vehicles(weather.get_allowed_vehicles())
+        vehicles = VehicleRepository.get_vehicles(weather.get_allowed_vehicles())
 
         self.__set_traffic_speed_limit(orbits, traffic_speed_limits)
         self.__adjust_crater_in_orbits(orbits, weather)
