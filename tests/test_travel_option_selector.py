@@ -26,9 +26,10 @@ class TravelOptionSelectorTests(unittest.TestCase):
             (VehicleType.CAR, [VehicleType.CAR]),
         ]
         for test in tests:
-            options = list(map(lambda x: self.travel_options_creator(3, x), test[1]))
-            option = TravelOptionSelector().select(options)
-            assert option.get_vehicle() == test[0]
+            with self.subTest(testcase=test[0]):
+                options = list(map(lambda x: self.travel_options_creator(3, x), test[1]))
+                option = TravelOptionSelector().select(options)
+                assert option.get_vehicle() == test[0]
 
     def travel_options_creator(self, speed, vehicle_type):
         x = TravelOption(None, None)
