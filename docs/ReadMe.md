@@ -11,7 +11,7 @@
 
 ## Running
 ### Production code
-- The command to run the application is `python -m geektrust ./inputfile/input1.txt'
+- The command to run the application is `python -m geektrust ./inputfile/input1.txt`
 
 ### Tests
 - The command to run unit test is `python -m unittest`
