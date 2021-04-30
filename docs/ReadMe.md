@@ -9,7 +9,7 @@
 
 
 ## Running
-- The application's entry point is main.py
+- The application's entry point is geektrust.py
 - The command is `python main.py ./inputfile/input1.txt'
   
 
