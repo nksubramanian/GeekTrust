@@ -5,15 +5,6 @@ from vehicle import VehicleType
 from travel_option import TravelOption
 
 
-class SupportClassForTests:
-    @staticmethod
-    def travel_options_creator(speed, vehicle_type):
-        x = TravelOption(None, None)
-        x.get_vehicle = mock.Mock(return_value=vehicle_type)
-        x.get_travel_time = mock.Mock(return_value=speed)
-        return x
-
-
 class TravelOptionSelectorTests(unittest.TestCase):
 
     def test_best_travel_option_is_based_time_of_travel_second(self):
@@ -22,9 +13,10 @@ class TravelOptionSelectorTests(unittest.TestCase):
             (3, [3, 6, 7]),
         ]
         for test in tests:
-            options = list(map(lambda x: SupportClassForTests.travel_options_creator(x, VehicleType.CAR), test[1]))
-            option = TravelOptionSelector().select(options)
-            assert option.get_travel_time() == test[0]
+            with self.subTest(test=test):
+                options = list(map(lambda x: self.travel_options_creator(x, VehicleType.CAR), test[1]))
+                option = TravelOptionSelector().select(options)
+                assert option.get_travel_time() == test[0]
 
 
     def test_best_travel_option_is_based_time_of_travel_third(self):
@@ -34,6 +26,12 @@ class TravelOptionSelectorTests(unittest.TestCase):
             (VehicleType.CAR, [VehicleType.CAR]),
         ]
         for test in tests:
-            options = list(map(lambda x: SupportClassForTests.travel_options_creator(3, x), test[1]))
+            options = list(map(lambda x: self.travel_options_creator(3, x), test[1]))
             option = TravelOptionSelector().select(options)
             assert option.get_vehicle() == test[0]
+
+    def travel_options_creator(self, speed, vehicle_type):
+        x = TravelOption(None, None)
+        x.get_vehicle = mock.Mock(return_value=vehicle_type)
+        x.get_travel_time = mock.Mock(return_value=speed)
+        return x
