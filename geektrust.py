@@ -29,8 +29,7 @@ def get_inputs(file_location):
     inputs_from_file = f.readline().split()
     return inputs_from_file
 
-
-if __name__ == '__main__':
+def main():
     if len(sys.argv) != 2:
         raise Exception(f"Expect main.py and <input file location> as arguments")
     inputs = get_inputs(sys.argv[1])
@@ -38,5 +37,8 @@ if __name__ == '__main__':
         raise Exception("Unrecognized weather")
     orbits_parameters = get_orbit_parameters("./config/configurations.json")
     travel_option = get_best_travel_option(inputs[0], [int(inputs[1]), int(inputs[2])], orbits_parameters)
-    print(travel_option.get_vehicle())
-    print(travel_option.get_orbit())
+    print(f'{travel_option.get_vehicle().name} {travel_option.get_orbit()}')
+
+
+if __name__ == '__main__':
+    main()
