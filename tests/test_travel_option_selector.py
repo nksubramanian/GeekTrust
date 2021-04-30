@@ -37,12 +37,3 @@ class TravelOptionSelectorTests(unittest.TestCase):
             options = list(map(lambda x: SupportClassForTests.travel_options_creator(3, x), test[1]))
             option = TravelOptionSelector().select(options)
             assert option.get_vehicle() == test[0]
-
-
-
-
-
-
-
-
-
