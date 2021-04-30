@@ -18,7 +18,7 @@
 - The application is unit tested using the default framework `unittest`
 - The command to run unit test is python -m unittest
 - The unit test coverage is measured by `coverage`
-- Command to run test coverage is `coverage run --omit=venv/*,tests/* -m unittest`
+- Command to run test coverage is `coverage run --omit=venv/*,tests/*,venv38/* -m unittest`
 - Command to get coverage report is `coverage html`
 - The coverage report is available at htmlcov/index.html
 - **The unit test code coverage is 100%**
