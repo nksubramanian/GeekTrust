@@ -1,25 +1,26 @@
 # Read Me
 ## What's done
-- The intention of the code is to meet the requirement as specified in docs/Geektrust_in_traffic_others.pdf
+- The intention of the code is to meet the requirement as specified in docs/Geektrust_in_traffic_Python.pdf
 - The code is developed using Python 3.8 using Virtual environment for package isolation
 
 
 ## Pre-requisites  
-- All requirements are in requirements.txt
+- There is no package dependency for production code and unittests 
+- However, there is a package dependency for coverage that is outlined in requirements.txt
 
 
 ## Running
-- The application's entry point is geektrust.py
-- The command is `python geektrust.py ./inputfile/input1.txt'
-  
+### Production code
+- The command to run the application is `python -m geektrust ./inputfile/input1.txt'
 
-## Tests
-- The integration tests and unit test can be found in tests directory
-- The application is unit tested using the default framework `unittest`
-- The command to run unit test is python -m unittest
-- The unit test coverage is measured by `coverage`
-- Command to run test coverage is `coverage run --omit=venv/*,tests/*,venv38/* -m unittest`
-- Command to get coverage report is `coverage html`
-- The coverage report is available at htmlcov/index.html
-- **The unit test code coverage is 100%**
+### Tests
+- The command to run unit test is `python -m unittest`
 
+### Coverage
+- The commands to run coverage are
+```
+pip install -r requirements.txt
+coverage run --omit=venv/*,tests/* -m unittest
+coverage html
+```
+- The coverage report is available at `htmlcov\index.html`
